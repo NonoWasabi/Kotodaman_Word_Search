@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel = "stylesheet" href = "https://unpkg.com/ress/dist/ress.min.css">
+    <link rel = "stylesheet" href = "style.css">
+    <mata name = "viewport" content = "width = device-width, initial-scale = 1"></mata>
+</head>
+<body>
+    <header>
+        <h1>コトダマン盤面検索</h1>
+        <nav>
+            <ul class = "main-nav">
+                <li><a href = "How_To_Use.html">How to Use</a></li>
+                <li><a href = "https://kotodaman.jp/">Official Home Page</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class = "mainsys">
+        <div class = "search">
+            <div class = "sevenwords">
+                <div class = "banmen empty banmen1"></div>
+                <div class = "banmen empty banmen2"></div>
+                <div class = "banmen empty banmen3"></div>
+                <div class = "banmen empty banmen4"></div>
+                <div class = "banmen empty banmen5"></div>
+                <div class = "banmen empty banmen6"></div>
+                <div class = "banmen empty banmen7"></div>
+            </div>
+
+            <section id="UI_buttons">
+                <input type = "image" id = "resetbutton" src = "img/reset_button.svg" alt = "<読み込み失敗>リセットボタン">
+                <input type = "image" id = "searchbutton" src = "img/search_button.svg" alt = "<読み込み失敗>検索するボタン">
+            </section>
+
+            <div class = "nihongolist">
+                <div class = "dan" class = "a_dan">
+                    <div class = "empty fifty" draggable = "true"><image class = "word changable small" src = "img/0.svg" alt = "あ"></image></div>
+                    <div class = "empty fifty" draggable = "true"><image class = "word changable small" src = "img/1.svg" alt = "い"></image></div>
+                    <div class = "empty fifty" draggable = "true"><image class = "word changable small" src = "img/2.svg" alt = "う"></image></div>
+                    <div class = "empty fifty" draggable = "true"><image class = "word changable small" src = "img/3.svg" alt = "え"></image></div>
+                    <div class = "empty fifty" draggable = "true"><image class = "word changable small" src = "img/4.svg" alt = "お"></image></div>
+                </div>
+                <div class = "dan" class = "k_dan">
+                    <div class = "empty fifty" draggable = "true"><image class = "word changable dakuten" src = "img/5.svg" alt = "か"></image></div>
+                    <div class = "empty fifty" draggable = "true"><image class = "word changable dakuten" src = "img/6.svg" alt = "き"></image></div>
+                    <div class = "empty fifty" draggable = "true"><image class = "word changable dakuten" src = "img/7.svg" alt = "く"></image></div>
+                    <div class = "empty fifty" draggable = "true"><image class = "word changable dakuten" src = "img/8.svg" alt = "け"></image></div>
+                    <div class = "empty fifty" draggable = "true"><image class = "word changable dakuten" src = "img/9.svg" alt = "こ"></image></div>
+                </div>
+                <div class = "dan" class = "s_dan">
+                    <div class = "empty fifty" draggable = "true"><image class = "word changable dakuten" src = "img/10.svg" alt = "さ"></image></div>
+                    <div class = "empty fifty" draggable = "true"><image class = "word changable dakuten" src = "img/11.svg" alt = "し"></image></div>
+                    <div class = "empty fifty" draggable = "true"><image class = "word changable dakuten" src = "img/12.svg" alt = "す"></image></div>
+                    <div class = "empty fifty" draggable = "true"><image class = "word changable dakuten" src = "img/13.svg" alt = "せ"></image></div>
+                    <div class = "empty fifty" draggable = "true"><image class = "word changable dakuten" src = "img/14.svg" alt = "そ"></image></div>
+                </div>
+                <div class = "dan" class = "t_dan">
+                    <div class = "empty fifty ta t_gyou a_dan" draggable = "true"><image class = "word changable dakuten" src = "img/15.svg" alt = "た"></image></div>
+                    <div class = "empty fifty ti" draggable = "true"><image class = "word changable dakuten" src = "img/16.svg" alt = "ち"></image></div>
+                    <div class = "empty fifty tu" draggable = "true"><image class = "word changable handakuten" src = "img/17.svg" alt = "つ"></image></div>
+                    <div class = "empty fifty te" draggable = "true"><image class = "word changable dakuten" src = "img/18.svg" alt = "て"></image></div>
+                    <div class = "empty fifty to" draggable = "true"><image class = "word changable dakuten" src = "img/19.svg" alt = "と"></image></div>
+                </div>
+                <div class = "dan" class = "n_dan">
+                    <div class = "empty fifty na" draggable = "true"><image class = "word" src = "img/20.svg" alt = "な"></image></div>
+                    <div class = "empty fifty ni" draggable = "true"><image class = "word" src = "img/21.svg" alt = "に"></image></div>
+                    <div class = "empty fifty nu" draggable = "true"><image class = "word" src = "img/22.svg" alt = "ぬ"></image></div>
+                    <div class = "empty fifty ne" draggable = "true"><image class = "word" src = "img/23.svg" alt = "ね"></image></div>
+                    <div class = "empty fifty no" draggable = "true"><image class = "word" src = "img/24.svg" alt = "の"></image></div>
+                </div>
+                <div class = "dan" class = "h_dan">
+                    <div class = "empty fifty ha" draggable = "true"><image class = "word changable handakuten" src = "img/25.svg" alt = "は"></image></div>
+                    <div class = "empty fifty hi" draggable = "true"><image class = "word changable handakuten" src = "img/26.svg" alt = "ひ"></image></div>
+                    <div class = "empty fifty hu" draggable = "true"><image class = "word changable handakuten" src = "img/27.svg" alt = "ふ"></image></div>
+                    <div class = "empty fifty he" draggable = "true"><image class = "word changable handakuten" src = "img/28.svg" alt = "へ"></image></div>
+                    <div class = "empty fifty ho" draggable = "true"><image class = "word changable handakuten" src = "img/29.svg" alt = "ほ"></image></div>
+                </div>
+                <div class = "dan" class = "m_dan">
+                    <div class = "empty fifty ma" draggable = "true"><image class = "word" src = "img/30.svg" alt = "ま"></image></div>
+                    <div class = "empty fifty mi" draggable = "true"><image class = "word" src = "img/31.svg" alt = "み"></image></div>
+                    <div class = "empty fifty mu" draggable = "true"><image class = "word" src = "img/32.svg" alt = "む"></image></div>
+                    <div class = "empty fifty me" draggable = "true"><image class = "word" src = "img/33.svg" alt = "め"></image></div>
+                    <div class = "empty fifty mo" draggable = "true"><image class = "word" src = "img/34.svg" alt = "も"></image></div>
+                </div>
+                <div class = "dan"  class = "y_dan">
+                    <div class = "empty fifty ya" draggable = "true"><image class = "word changable small" src = "img/35.svg" alt = "や"></image></div>
+                    <div class = "empty fifty yu" draggable = "true"><image class = "word changable small" src = "img/36.svg" alt = "ゆ"></image></div>
+                    <div class = "empty fifty yo" draggable = "true"><image class = "word changable small" src = "img/37.svg" alt = "よ"></image></div>
+                </div>
+                <div class = "dan" class = "r_dan">
+                    <div class = "empty fifty ra" draggable = "true"><image class = "word" src = "img/38.svg" alt = "ら"></image></div>
+                    <div class = "empty fifty ri" draggable = "true"><image class = "word" src = "img/39.svg" alt = "り"></image></div>
+                    <div class = "empty fifty ru" draggable = "true"><image class = "word" src = "img/40.svg" alt = "る"></image></div>
+                    <div class = "empty fifty re" draggable = "true"><image class = "word" src = "img/41.svg" alt = "れ"></image></div>
+                    <div class = "empty fifty ro" draggable = "true"><image class = "word" src = "img/42.svg" alt = "ろ"></image></div>
+                </div>
+                <div class = "dan" class = "w_dan">
+                    <div class = "empty fifty wo" draggable = "true"><image class = "word" src = "img/43.svg" alt = "わ"></image></div>
+                    <div class = "empty fifty nn" draggable = "true"><image class = "word" src = "img/44.svg" alt = "ん"></image></div>
+                </div>
+            </div>
+        </div>
+
+        <div class = "result">
+        </div>
+
+    </div>
+    <script src = "script.js"></script>
+    <script src = "result.js"></script>
+</body>
+</html>

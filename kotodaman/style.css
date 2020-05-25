@@ -1,0 +1,213 @@
+@charset "UTF-8";
+html{
+    font-size: 100%;
+}
+
+header{
+    background-color: rgb(149, 189, 126);
+
+    margin: 0 auto;
+    padding: 0 4%;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+header h1{
+    font-size: 1.8rem;
+}
+
+.main-nav{
+    display: flex;
+    font-size: 1.25;
+    text-transform: uppercase;
+    margin-top: 25px;
+    list-style: none;
+}
+
+.main-nav li{
+    margin-left: 36px;
+}
+
+.main-nav a{
+    text-decoration: none;
+    color: #432;
+}
+
+.main-nav a:hover{
+    color: rgb(201, 154, 0);
+}
+
+
+body{
+    font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", sans-serif;
+    line-height: 1.7;
+    color: #432;
+
+    background-image: url(img/ktdmnbg.jpg);
+    
+    width: 100vw;
+    height: 100vh;
+}
+
+.mainsys .search{
+    height: 100%;
+    margin-right: 10px;
+    
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+
+#UI_buttons{
+    width: 100%;
+    max-width: 800px;
+    padding:10px 0 10px 0;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+#resetbutton{
+    width:30%;
+}
+#searchbutton{
+    width:30%;
+}
+
+.mainsys{
+    margin: 30px 30px 30px 30px;
+}
+
+.mainsys .search{
+    height: 100%;
+    margin-right: 10px;
+    
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+
+.mainsys .search .sevenwords{
+    background-color: rgba(219, 195, 171, 0.5);
+    height: 100px;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mainsys .search .sevenwords .banmen{
+    background-color: rgba(129, 129, 129, 0.8);
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.mainsys .nihongolist{
+    background-color:rgb(92, 46, 12);
+    width: 100%;
+    max-width: 800px;
+    padding: 10px;
+    /*text-align: center;*/
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: stretch;
+}
+
+
+.mainsys .nihongolist .dan{
+    width: 65px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.word{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 4px 4px 4px 4px; /* 5px > 4px 左右追加*/
+    text-align: center;
+}
+/* wordは全てに適用 */
+
+.mainsys .result{
+    background-color: darkgoldenrod;
+    height: 100%;
+    width: 100%;
+}
+
+/* 横幅が700px未満の時に発動するCSS*/
+@media screen and (max-width:700px){
+    header h1{
+        font-size: 1.0rem;
+    }
+
+    .main-nav{
+        font-size: 0.8rem;
+        margin-top: 10px;
+    }
+
+    .mainsys{
+        margin: 5px;
+    }
+
+    .mainsys .search .sevenwords{
+        height: 80px;
+    }
+
+    .mainsys .search .sevenwords .banmen{
+        width: 50px;
+        height: 50px;
+    }
+
+    .mainsys .nihongolist{
+        width: 100%;
+        height: 100%;
+        background-image: unset;
+        overflow-x:scroll;
+        scrollbar-width: 1000px;
+        -webkit-overflow-scrolling: touch;
+        justify-content: unset; /* こいつがスクロールバーに悪さするので，切る */
+        
+    }
+    /*.mainsys .nihongolist .dan{
+        width:100%;
+        display: flex;
+        flex-direction: row;
+    }*/
+
+    .mainsys .nihongolist::-webkit-scrollbar{
+        width:20px;
+        height:10px;
+    }
+    .mainsys .nihongolist::-webkit-scrollbar-track-piece:horizontal{
+        background: rgba(60,60,60,0.7);
+        border-radius: 10px;
+    }
+    .mainsys .nihongolist::-webkit-scrollbar-thumb:horizontal{
+        background: url('img/scroll_Thumb.svg') no-repeat;
+        background-size: 100%;
+        background-position:center;
+        width:5px;
+        display: block;
+    }
+
+    .word{
+        width: 50px;
+        height: 50px;
+        margin-left: 8px;
+    }
+
+    
+
+}
