@@ -13,14 +13,12 @@ for (let i = 0; i < list_items.length; i++){
     const item = list_items[i];
 
     item.addEventListener("dragstart", function(){
-        console.log('Listen dragstart event');
         draggedItem = item
         predrag = item.parentElement
 
     });
 
     item.addEventListener("dragend", function(){
-        console.log('Listen dragend event');
         setTimeout( function(){
             draggedItem = null;
             predrag = null;
@@ -31,13 +29,11 @@ for (let i = 0; i < list_items.length; i++){
         item.addEventListener('touchstart',function(e){
             let endMode = false;
             e.preventDefault();
-            console.log('start');
             draggedItem = item.cloneNode(true);
             predrag = item.parentElement;
 
             //touchstart -> touchmoveと判定された場合は，文字移動シーケンスと判定し，ひらがなパーツを握持する．
             item.addEventListener('touchmove',function Changable_Move(e){
-                console.log('move')
                 endMode = true;
                 event.preventDefault();
 
@@ -58,7 +54,6 @@ for (let i = 0; i < list_items.length; i++){
             item.addEventListener('touchend',function changable_touchend(e){
                 e.preventDefault();
                 if(endMode){
-                    console.log('end_drop');
                     e.preventDefault();
                     // 絶対座標で指定されたスタイルをリセットする．
                     e.target.style.position = '';
@@ -76,7 +71,6 @@ for (let i = 0; i < list_items.length; i++){
                 }
                 else{
                     window.setTimeout(function(){
-                        console.log('end_change');
                         let img_src = item.getAttribute("src");
                         img_src = img_src.substr(4);
                         img_src = img_src.slice(0, -4);
@@ -149,12 +143,10 @@ for(let j = 0; j < lists.length; j++){
 
     list.addEventListener("dragover", function(e){
         e.preventDefault();
-        console.log('Listen DragOver event');
 
     });
     list.addEventListener("dragenter", function(e){
         e.preventDefault();
-        console.log('Listen DragEnter event');
     });
 }
 
@@ -163,7 +155,6 @@ for(let k = 0; k < fifty_lists.length; k++){
 
     fifty_list.addEventListener("dragleave", function(e){
         e.preventDefault();
-        console.log('Listen DragLeave event');
     });
 
 }
@@ -172,7 +163,6 @@ for(let l = 0; l < banmen_lists.length; l++) {
     const banmen_list = banmen_lists[l];
 
     banmen_list.addEventListener("drop", function(e){
-        console.log('Listen Drop event');
         e.preventDefault();
         copy = draggedItem.cloneNode(true);
         copy.classList.add("input");
@@ -199,7 +189,6 @@ for(let m = 0; m < changable_lists.length; m++){
 
         if(dakuten_bool){
             img_src = "img/"+ String((Number(img_src)+50)%100) +".svg";
-            console.log(img_src);
             changable_list.setAttribute("src", img_src);
 
             if(changable_list.getAttribute("alt").normalize('NFD').length == 1){ //濁点でないとき，濁点を付けてaltを書き換える
@@ -217,7 +206,6 @@ for(let m = 0; m < changable_lists.length; m++){
         else if(handakuten_bool){
             let img_src_num = img_src;
             img_src = "img/"+ String((Number(img_src)+50)%150) +".svg";
-            console.log(img_src);
             changable_list.setAttribute("src", img_src);
 
             if(img_src_num == 17){
@@ -237,12 +225,9 @@ for(let m = 0; m < changable_lists.length; m++){
 
             else{
                 let uni_num_x16 = escape(changable_list.getAttribute("alt").normalize("NFC")[0]).substr(2, 4);
-                console.log(uni_num_x16);
                 let uni_num = Number(parseInt(uni_num_x16, 16));
-                console.log(uni_num);
 
                 if((uni_num % 3 == 0)||( uni_num % 3 == 1)){ 
-                    console.log("up");
                     uni_num++;
                     after_word = unescape("%u" + uni_num.toString(16));
                     changable_list.removeAttribute("alt");
@@ -250,7 +235,6 @@ for(let m = 0; m < changable_lists.length; m++){
                 }
 
                 else{
-                    console.log("down");
                     uni_num = uni_num - 2;
                     after_word = unescape("%u" + uni_num.toString(16));
                     changable_list.removeAttribute("alt");
@@ -261,21 +245,17 @@ for(let m = 0; m < changable_lists.length; m++){
 
         else if(small_bool){
             img_src = "img/"+ String((Number(img_src)+150)%300) +".svg";
-            console.log(img_src);
             changable_list.setAttribute("src", img_src);
             
             let uni_num = escape(changable_list.getAttribute("alt").normalize("NFD")[0]).substr(2, 4);
-            console.log(uni_num);
             if(Number(uni_num) % 2 == 0){
                 let after_word = unescape("%u" + String(Number(uni_num) - 1));
-                console.log(after_word);
                 changable_list.removeAttribute("alt");
                 changable_list.setAttribute("alt", after_word);
             }
 
             else{
                 let after_word = unescape("%u" + String(Number(uni_num) + 1));
-                console.log(after_word);
                 changable_list.removeAttribute("alt");
                 changable_list.setAttribute("alt", after_word);
             }
@@ -287,14 +267,7 @@ for(let m = 0; m < changable_lists.length; m++){
 
 //-----------------------------------------------------------------------------------------------------------------
 document.getElementById("resetbutton").onclick = function(){
-
-    const reseted_Elements = document.getElementsByClassName("banmen");
-    for(let n = 0; n < reseted_Elements.length; n++){
-        reseted_Elements[n].textContent = null;
-    }
-};
-document.getElementById("resetbutton").ontouchstart = function(){
-    console.log('touchResetButton');
+    
     const reseted_Elements = document.getElementsByClassName("banmen");
     for(let n = 0; n < reseted_Elements.length; n++){
         reseted_Elements[n].textContent = null;
