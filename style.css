@@ -52,7 +52,6 @@ body{
 
 .mainsys .search{
     height: 100%;
-    margin-right: 10px;
     
     display: flex;
     flex-flow: column;
@@ -73,15 +72,12 @@ input:focus{
     outline: 0;
 }
 
-
-
 #resetbutton{
-    width:30%;
+    width: 30%;
 }
 
-
 #searchbutton{
-    width:30%;
+    width: 30%;
 }
 
 .mainsys{
@@ -109,7 +105,7 @@ input:focus{
 }
 
 .mainsys .search .sevenwords .banmen{
-    background-color: rgba(129, 129, 129, 0.8);
+    background-color: rgba(0, 0, 0, 0.2);
     width: 75px;
     height: 75px;
     border-radius: 50%;
@@ -158,10 +154,11 @@ input:focus{
     background-color: darkgoldenrod;
     height: 100%;
     width: 100%;
+    max-width: 800px;
 }
 
 /* 横幅が700px未満の時に発動するCSS*/
-@media screen and (max-width:700px){
+@media screen and (max-width:735px){
     header h1{
         font-size: 1.0rem;
     }
