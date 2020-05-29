@@ -166,6 +166,9 @@ for(let l = 0; l < banmen_lists.length; l++) {
         e.preventDefault();
         copy = draggedItem.cloneNode(true);
         copy.classList.add("input");
+        if(this.firstElementChild != null){
+            this.textContent = null;
+        }
         this.append(copy);
         predrag.append(draggedItem);
     });
