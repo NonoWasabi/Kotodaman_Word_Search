@@ -119,10 +119,11 @@ input:focus{
     width: 100%;
     max-width: 800px;
     padding: 10px;
+    height: 100%;
     /*text-align: center;*/
     display: flex;
     flex-direction: row-reverse;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: stretch;
 
     border: solid;
@@ -134,19 +135,26 @@ input:focus{
 
 .mainsys .nihongolist .dan{
     width: 65px;
-    height: 100%;
+    height: 360px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: stretch;
+    align-content: space-between;
+}
+
+.fifty{
+    height: 60px;
+    width: 60px;
+
+    display: flex;
+    justify-content: center;
 }
 
 .word{
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    margin: 4px 4px 4px 4px; /* 5px > 4px 左右追加*/
-    text-align: center;
+    margin: 2px 4px 2px 4px; /* 5px > 4px 左右追加*/
 }
 /* wordは全てに適用 */
 
