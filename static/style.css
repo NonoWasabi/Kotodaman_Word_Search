@@ -4,38 +4,44 @@ html{
 }
 
 header{
-    background-color: rgb(149, 189, 126);
-
-    margin: 0 auto;
-    padding: 0 4%;
-
-    display: flex;
-    justify-content: space-between;
+    background-color: rgba(149, 189, 126);
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
-header h1{
-    font-size: 1.8rem;
+.headA{
+    display: block;
+    width: 100%;
 }
 
-.main-nav{
-    display: flex;
-    font-size: 1.25;
-    text-transform: uppercase;
-    margin-top: 25px;
+.headA p{
+    margin-left: 10px;
+}
+
+.headB ul{
     list-style: none;
 }
 
-.main-nav li{
-    margin-left: 36px;
+.headB ul li{
+    width: 160px;
 }
 
-.main-nav a{
+.headB a{
+    display: block;
     text-decoration: none;
-    color: #432;
+    padding: 10px;
+    font-size: 15px;
+    color: inherit;
+    transition: 0.5s;
 }
 
-.main-nav a:hover{
-    color: rgb(201, 154, 0);
+.headB a:hover{
+    background-color: rgb(113, 143, 95);
+}
+
+.headA .headC{
+    height: 100%;
 }
 
 
@@ -118,7 +124,7 @@ input:focus{
     background-color:rgb(92, 46, 12);
     width: 100%;
     max-width: 800px;
-    padding: 10px;
+    padding: 10px 10px 20px 10px;
     height: 100%;
     display: flex;
     flex-direction: row-reverse;
@@ -133,12 +139,12 @@ input:focus{
 
 
 .mainsys .nihongolist .dan{
-    width: 65px;
+    width: 60px;
     height: 360px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-content: space-between;
+    align-content: center;
 }
 
 .fifty{
@@ -147,6 +153,7 @@ input:focus{
 
     display: flex;
     justify-content: center;
+    align-content: center;
 }
 
 .word{
@@ -154,7 +161,6 @@ input:focus{
     height: 60px;
     border-radius: 50%;
     margin: 4px 4px 4px 4px; /* 5px > 4px 左右追加*/
-    text-align: center;
 }
 /* wordは全てに適用 */
 
@@ -166,13 +172,28 @@ input:focus{
 
 /* 横幅が700px未満の時に発動するCSS*/
 @media screen and (max-width:700px){
-    header h1{
-        font-size: 1.0rem;
+    .headA{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
-    .main-nav{
-        font-size: 0.8rem;
-        margin-top: 10px;
+    .headB{
+        display: none;
+    }
+
+    .headC{
+        margin-right: 10px;
+        padding: 0;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 28px;
+        cursor: pointer;
+    }
+
+    .headC:hover{
+        color: rgb(113, 143, 95);
     }
 
     .mainsys{
@@ -225,7 +246,37 @@ input:focus{
         height: 50px;
         margin-left: 8px;
     }
+}
 
-    
+@media(min-width: 701px){
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+    }
 
+    header .con{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .headB{
+        display: block !important;
+    }
+
+    .headB ul{
+        display: flex;
+        height: 100%;
+
+        text-align: center;
+    }
+
+    .head ul li{
+        height: 100%;
+    }
+
+    .headC{
+        display: none;
+    }
 }

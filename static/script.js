@@ -72,22 +72,22 @@ for (let i = 0; i < list_items.length; i++){
                 else{
                     window.setTimeout(function(){
                         let img_src = item.getAttribute("src");
-                        img_src = img_src.substr(4);
+                        img_src = img_src.substr(11);
                         img_src = img_src.slice(0, -4);
                         let dakuten_bool = item.classList.contains("dakuten");
                         let handakuten_bool = item.classList.contains("handakuten");
                         let small_bool = item.classList.contains("small");
                         if(dakuten_bool){
-                            img_src = "img/"+ String((Number(img_src)+50)%100) +".svg"
+                            img_src = "static/img/"+ String((Number(img_src)+50)%100) +".svg"
                             item.setAttribute('alt','')
                             item.setAttribute("src", img_src);
                         }
                         else if(handakuten_bool){
-                            img_src = "img/"+ String((Number(img_src)+50)%150) +".svg"
+                            img_src = "static/img/"+ String((Number(img_src)+50)%150) +".svg"
                             item.setAttribute("src", img_src);
                         }
                         else if(small_bool){
-                            img_src = "img/"+ String((Number(img_src)+150)%300) +".svg"
+                            img_src = "static/img/"+ String((Number(img_src)+150)%300) +".svg"
                             item.setAttribute("src", img_src);
                         }
                     },100)
@@ -177,15 +177,18 @@ for(let m = 0; m < changable_lists.length; m++){
     changable_list.addEventListener("click", function(e){
         e.preventDefault();
         let img_src = changable_list.getAttribute("src");
-        img_src = img_src.substr(4);
+        //img_src = img_src.substr(12);
+        img_src = img_src.substr(11);
+        console.log(img_src);
         img_src = img_src.slice(0, -4);
+        console.log(img_src);
 
         let dakuten_bool = changable_list.classList.contains("dakuten");
         let handakuten_bool = changable_list.classList.contains("handakuten");
         let small_bool = changable_list.classList.contains("small");
 
         if(dakuten_bool){
-            img_src = "img/"+ String((Number(img_src)+50)%100) +".svg";
+            img_src = "static/img/"+ String((Number(img_src)+50)%100) +".svg";
             changable_list.setAttribute("src", img_src);
 
             if(changable_list.getAttribute("alt").normalize('NFD').length == 1){ //濁点でないとき，濁点を付けてaltを書き換える
@@ -202,7 +205,7 @@ for(let m = 0; m < changable_lists.length; m++){
 
         else if(handakuten_bool){
             let img_src_num = img_src;
-            img_src = "img/"+ String((Number(img_src)+50)%150) +".svg";
+            img_src = "static/img/"+ String((Number(img_src)+50)%150) +".svg";
             changable_list.setAttribute("src", img_src);
 
             if(img_src_num == 17){
@@ -241,7 +244,7 @@ for(let m = 0; m < changable_lists.length; m++){
         }
 
         else if(small_bool){
-            img_src = "img/"+ String((Number(img_src)+150)%300) +".svg";
+            img_src = "static/img/"+ String((Number(img_src)+150)%300) +".svg";
             changable_list.setAttribute("src", img_src);
             
             let uni_num = escape(changable_list.getAttribute("alt").normalize("NFD")[0]).substr(2, 4);
@@ -270,3 +273,10 @@ document.getElementById("resetbutton").onclick = function(){
         reseted_Elements[n].textContent = null;
     }
 };
+
+//----------------------------------------------------------------------
+$(function(){
+    $(".headC").click(function(){
+        $(".headB").slideToggle();
+    });
+});
