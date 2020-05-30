@@ -1,5 +1,14 @@
 <label id='result_list'>
+    <table>
     {% for x in posts %}
-    {{x}}
+        <tr>
+            <td>
+                {{x["word"]}}
+            </td>
+            <td>
+                {{x["fill_char"]}}
+            </td>
+        </tr>
     {% endfor %}
+    </table>
 <label>
