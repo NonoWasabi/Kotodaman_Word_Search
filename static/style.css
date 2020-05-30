@@ -52,7 +52,6 @@ body{
 
 .mainsys .search{
     height: 100%;
-    margin-right: 10px;
     
     display: flex;
     flex-flow: column;
@@ -73,12 +72,9 @@ input:focus{
     outline: 0;
 }
 
-
-
 #resetbutton{
     width:30%;
 }
-
 
 #searchbutton{
     width:30%;
@@ -109,7 +105,7 @@ input:focus{
 }
 
 .mainsys .search .sevenwords .banmen{
-    background-color: rgba(129, 129, 129, 0.8);
+    background-color: rgba(0, 0, 0, 0.2);
     width: 75px;
     height: 75px;
     border-radius: 50%;
@@ -123,7 +119,7 @@ input:focus{
     width: 100%;
     max-width: 800px;
     padding: 10px;
-    /*text-align: center;*/
+    height: 100%;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-evenly;
@@ -138,11 +134,19 @@ input:focus{
 
 .mainsys .nihongolist .dan{
     width: 65px;
-    height: 100%;
+    height: 360px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: stretch;
+    align-content: space-between;
+}
+
+.fifty{
+    height: 60px;
+    width: 60px;
+
+    display: flex;
+    justify-content: center;
 }
 
 .word{
