@@ -138,22 +138,25 @@ for (let i = 0; i < list_items.length; i++){
     }
 }
 
-for(let j = 0; j < banmen_lists.length; j++){
-    const banmen_list = banmen_lists[j];
+for(let j = 0; j < lists.length; j++){
+    const list = lists[j];
 
-    banmen_list.addEventListener("dragover", function(e){
+    list.addEventListener("dragover", function(e){
         e.preventDefault();
 
     });
-    banmen_list.addEventListener("dragenter", function(e){
+    list.addEventListener("dragenter", function(e){
         e.preventDefault();
-        this.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
+    });
+}
+
+for(let k = 0; k < fifty_lists.length; k++){
+    const fifty_list = fifty_lists[k];
+
+    fifty_list.addEventListener("dragleave", function(e){
+        e.preventDefault();
     });
 
-    banmen_list.addEventListener("dragleave", function(e){
-        e.preventDefault();
-        this.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
-    });
 }
 
 for(let l = 0; l < banmen_lists.length; l++) {
@@ -161,12 +164,8 @@ for(let l = 0; l < banmen_lists.length; l++) {
 
     banmen_list.addEventListener("drop", function(e){
         e.preventDefault();
-        this.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
         copy = draggedItem.cloneNode(true);
         copy.classList.add("input");
-        if(this.firstElementChild != null){
-            this.textContent = null;
-        }
         this.append(copy);
         predrag.append(draggedItem);
     });
