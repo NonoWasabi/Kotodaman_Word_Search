@@ -270,3 +270,10 @@ document.getElementById("resetbutton").onclick = function(){
         reseted_Elements[n].textContent = null;
     }
 };
+
+//----------------------------------------------------------------------
+$(function(){
+    $(".headC").click(function(){
+        $(".headB").slideToggle();
+    });
+});
