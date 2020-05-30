@@ -8,10 +8,22 @@
     <link rel = "stylesheet" href = "https://unpkg.com/ress/dist/ress.min.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/89e57c9a66.js" crossorigin="anonymous"></script>
+    <script src="{{url_for('static', filename='loading.js')}}"></script>
     <link rel = "stylesheet" href = "{{url_for('static', filename='style.css')}}">
+    <link rel = "stylesheet" href = "{{url_for('static', filename='loading.css')}}">
     <mata name = "viewport" content = "width = device-width, initial-scale = 1"></mata>
 </head>
 <body>
+    <div id='loader'>
+        <div class="sk-folding-cube">
+            <div class="sk-cube1 sk-cube"></div>
+            <div class="sk-cube2 sk-cube"></div>
+            <div class="sk-cube4 sk-cube"></div>
+            <div class="sk-cube3 sk-cube"></div>
+        </div>
+        <p>Loading ...</p>
+    </div>
+
     <header>
         <div class = "con">
             <div class = "headA">
