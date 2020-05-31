@@ -23,7 +23,8 @@ def post():
 @app.route('/pay',methods=['POST'])
 def pay():
     #カード情報を入力し，決済確定ボタンを押してから行われるフェーズ
-    amount = request.form['amount']
+    print('payment phase')
+    amount = 1000
     customer = payjp.Customer.create(
        card=request.form['payjp-token']
     )
