@@ -9,15 +9,12 @@ word_list = [[] for _ in range(WORD_LIST_LENGTH)]
 #theme.txtの情報を受け取るリスト
 thema = {}
 
+
 #抽出ターゲットである文字数を指定する変数
 # 2文字なら[0]
 start = 3 #以上
 end = 7  #未満
-candidate_words = []
-candidate_fill = []
-satisfied_thema_word = []
-satisfied_char_word = []
-satisfied_both_word = []
+
 
 def check_thema(word,candidate_thema):
         for t in candidate_thema:
@@ -30,29 +27,37 @@ def check_char(word,candidate_char):
     return False
 
 def candidator(target=None, candidate_char=None, candidate_thema=None,mode='Normal'):
-
+    candidate_words = []
+    candidate_fill = []
+    satisfied_thema_word = []
+    satisfied_char_word = []
+    satisfied_both_word = []
     # 入ってて欲しいひらがなとテーマを指定
     if target == None:  target = "ぽぷてぴぴっ."
     if candidate_char == None:  candidate_char = ['い','う','ん','く','ょ','ゅ']
     if candidate_thema == None: candidate_thema = [1,2,3,4,5]
 
     # 言葉dbをCSVからファイルの読み込み
-    with open("./combine_output.csv","r",encoding='utf-8') as f:
-        reader = csv.reader(f)
-        next(reader)
-        for row in reader:
-            if len(row) == 0: continue
-            word = row[1]
-            word_list[len(word)-2].append({"word":word,"theme":list(map(int,row[2:11]))})
-    
+    if len(word_list[0]) == 0:
+        print('Database Loading...')
+        with open("./combine_output.csv","r",encoding='utf-8') as f:
+            reader = csv.reader(f)
+            next(reader)
+            for row in reader:
+                if len(row) == 0: continue
+                word = row[1]
+                word_list[len(word)-2].append({"word":word,"theme":list(map(int,row[2:11]))})
+
     #テーマ検索機能を有する場合，
     if mode=='Theme':
-        #テーマファイルの読み込み
-        with open("./theme.txt","r",encoding='utf-8') as f:
-            for row in f:
-                text = row.split(",")
-                for i in range(len(text)//2):
-                    thema[int(text[i*2])] = text[i*2+1]
+        if len(thema) == 0:
+            print('Theme file Loading...')
+            #テーマファイルの読み込み
+            with open("./theme.txt","r",encoding='utf-8') as f:
+                for row in f:
+                    text = row.split(",")
+                    for i in range(len(text)//2):
+                        thema[int(text[i*2])] = text[i*2+1]
 
     #条件にあう単語を抜き出し
     for xth_words in word_list[start:end]:

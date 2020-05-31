@@ -24,6 +24,7 @@ document.getElementById("searchbutton").onclick = function(){
         success: function(data, dataType){
             console.log('Success',data)
             $('#result').html(data);
+            resultShow();
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
             console.log('Error : '+errorThrown)
@@ -31,6 +32,23 @@ document.getElementById("searchbutton").onclick = function(){
     });
 
     
-    
-}
 
+}
+function resultShow(){
+    var result = document.getElementById('result');
+    if (!result) return;
+    result.classList.toggle('is-show');
+
+    var blackBg = document.getElementById('js-black-bg');
+    var closeBtn = document.getElementById('js-close-btn');
+
+    resultClose(blackBg);
+    resultClose(closeBtn);
+
+    function resultClose(elem){
+        if(!elem) return;
+        elem.addEventListener('click', function(){
+            result.classList.toggle('is-show');
+        });
+    }
+}

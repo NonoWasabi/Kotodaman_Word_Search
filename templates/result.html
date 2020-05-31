@@ -1,14 +1,18 @@
-<label id='result_list'>
-    <table>
-    {% for x in posts %}
-        <tr>
-            <td>
-                {{x["word"]}}
-            </td>
-            <td>
-                {{x["fill_char"]}}
-            </td>
-        </tr>
-    {% endfor %}
-    </table>
-<label>
+<div class='popup-inner'>
+    <div class='close-btn' id='js-close-btn'><i class='fas fa-times'></i></div>
+    <label id='result_list'>
+        <ul>
+        {% for x in posts %}
+            <tr>
+                <td class='word'>
+                    <p>{{x["word"]}}</p>
+                </td>
+                <td class='fill'>
+                    <p>{{x["fill_char"]}}</p>
+                </td>
+            </tr>
+        {% endfor %}
+        </ul>
+    </label>
+</div>
+<div class='black-background' id = 'js-black-bg'></div>
