@@ -53,6 +53,7 @@ body{
     color: #432;
 
     background-image: url(img/ktdmnbg.jpg);
+    background-attachment: fixed;
     
     width: 100vw;
     height: 100vh;
