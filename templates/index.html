@@ -44,22 +44,24 @@
 
     <div class = "mainsys">
         <div class = "search">
-            <div class = "sevenwords">
-                <div class = "leftframe">
-                    <img class = "leftframe_img" src = "{{url_for('static', filename='img/banmenframe.svg')}}" alt = "">
+            <div class='sevenwords-wrap'>
+                <div class = "frame">
+                    <img src = "{{url_for('static', filename='img/banmenframe.svg')}}" alt = "">
                 </div>
-                <div class = "banmen empty banmen1"></div>
-                <div class = "banmen empty banmen2"></div>
-                <div class = "banmen empty banmen3"></div>
-                <div class = "banmen empty banmen4"></div>
-                <div class = "banmen empty banmen5"></div>
-                <div class = "banmen empty banmen6"></div>
-                <div class = "banmen empty banmen7"></div>
-                <div class = "rightframe">
-                    <img class = "rightframe_img" src = "{{url_for('static', filename='img/banmenframe.svg')}}" alt = "">
+                <div class = "sevenwords">
+                    <div class = "banmen empty banmen1"></div>
+                    <div class = "banmen empty banmen2"></div>
+                    <div class = "banmen empty banmen3"></div>
+                    <div class = "banmen empty banmen4"></div>
+                    <div class = "banmen empty banmen5"></div>
+                    <div class = "banmen empty banmen6"></div>
+                    <div class = "banmen empty banmen7"></div>
+                </div>
+                
+                <div class = "frame scalereverse">
+                        <img src = "{{url_for('static', filename='img/banmenframe.svg')}}" alt = "">
                 </div>
             </div>
-
             <section id="UI_buttons">
                 <input type = "image" id = "resetbutton" src = "{{url_for('static', filename='img/reset_button.svg')}}" alt = "<読み込み失敗>リセットボタン">
                 <input type = "image" id = "searchbutton" src = "{{url_for('static', filename='img/search_button.svg')}}" alt = "<読み込み失敗>検索するボタン">
@@ -130,7 +132,7 @@
                 <div class = "dan" class = "w_gyou">
                     <div class = "empty fifty" draggable = "true"><image class = "word" src = "static/img/43.svg" alt = "わ"></image></div>
                     <div class = "empty fifty" draggable = "true"><image class = "word" src = "static/img/44.svg" alt = "ん"></image></div>
-                    <div><image class = "leaf" src = "static/img/leaf.svg"></image></div>
+                    <div class = "empty fifty" draggable = "false"><image class = "word" src = "static/img/leaf.svg"></image></div>
                 </div>
             </div>
         </div>

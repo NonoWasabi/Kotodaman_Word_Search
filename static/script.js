@@ -147,17 +147,17 @@ for(let j = 0; j < banmen_lists.length; j++){
     });
     banmen_list.addEventListener("dragenter", function(e){
         e.preventDefault();
-        this.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
+        this.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
     });
 
     banmen_list.addEventListener("dragleave", function(e){
         e.preventDefault();
-        this.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+        this.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
     });
 
     banmen_list.addEventListener("drop", function(e){
         e.preventDefault();
-        this.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+        this.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
         copy = draggedItem.cloneNode(true);
         copy.classList.add("input");
         if(this.firstElementChild != null){
