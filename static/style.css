@@ -56,15 +56,6 @@ body{
     height: 100vh;
 }
 
-.mainsys .search{
-    height: 100%;
-    
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-}
-
-
 #UI_buttons{
     width: 100%;
     max-width: 800px;
@@ -100,14 +91,24 @@ input:focus{
 }
 
 
-.mainsys .search .sevenwords{
+
+
+.mainsys .search .sevenwordswrap .sevenwords{
     background-color: rgba(219, 195, 171, 0.5);
     height: 100px;
     width: 100%;
     max-width: 800px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+}
+
+.leftframe, .rightframe{
+    width: 20px;
+}
+
+.rightframe{
+    transform:scale(-1, 1);
 }
 
 .mainsys .search .sevenwords .banmen{
@@ -115,9 +116,7 @@ input:focus{
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline;
 }
 
 .mainsys .nihongolist{
@@ -171,6 +170,11 @@ input:focus{
     width: 100%;
 }
 
+.color{
+    font-weight: bold;
+    color: black;
+}
+
 .leaf{
     padding-top: 10px;
 }
@@ -210,8 +214,8 @@ input:focus{
     }
 
     .mainsys .search .sevenwords .banmen{
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
     }
 
     .mainsys .nihongolist{
@@ -247,8 +251,8 @@ input:focus{
     }
 
     .word{
-        width: 50px;
-        height: 50px;
+        width: 45px;
+        height: 45px;
         margin-left: 8px;
     }
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class='popup-inner'>
     <div class='close-btn' id='js-close-btn'><i class='fas fa-times'></i></div>
     <label id='result_list'>
@@ -16,3 +17,19 @@
     </label>
 </div>
 <div class='black-background' id = 'js-black-bg'></div>
+=======
+<label id='result_list' class = 'color'>
+    <table>
+    {% for x in posts %}
+        <tr>
+            <td>
+                {{x["word"]}}
+            </td>
+            <td>
+                {{x["fill_char"]}}
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+<label>
+>>>>>>> eb6062e28247152731743c353ae587c0987441c5
