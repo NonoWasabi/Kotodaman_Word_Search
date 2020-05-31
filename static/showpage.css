@@ -10,6 +10,7 @@
     background: rgba(29, 70, 0, 0.77);
     transition: 0.8s;
     text-align: center;
+    display:none;
     width:100%;
 }
 #funding p{
@@ -50,6 +51,15 @@ button{
     color:white;
     background:rgb(63, 150, 0);
     border-radius: 5px;
+}
+
+#fundthanks{
+    position: fixed;
+    top:40;
+    left:0;
+    text-align: center;
+    background:rgb(63, 150, 0);
+    color:white;
 }
 
 @media screen and (max-width:400px){
