@@ -1,7 +1,6 @@
 import csv
 from collections import Counter
 
-
 WORD_LIST_LENGTH = 6
 l = []
 
@@ -38,7 +37,7 @@ def candidator(target=None, candidate_char=None, candidate_thema=None,mode='Norm
     if candidate_thema == None: candidate_thema = [1,2,3,4,5]
 
     # 言葉dbをCSVからファイルの読み込み
-    with open("./combine_output.csv","r") as f:
+    with open("./combine_output.csv","r",encoding='utf-8') as f:
         reader = csv.reader(f)
         next(reader)
         for row in reader:
@@ -49,7 +48,7 @@ def candidator(target=None, candidate_char=None, candidate_thema=None,mode='Norm
     #テーマ検索機能を有する場合，
     if mode=='Theme':
         #テーマファイルの読み込み
-        with open("./theme.txt","r") as f:
+        with open("./theme.txt","r",encoding='utf-8') as f:
             for row in f:
                 text = row.split(",")
                 for i in range(len(text)//2):
@@ -61,7 +60,7 @@ def candidator(target=None, candidate_char=None, candidate_thema=None,mode='Norm
             word_len = len(word_dic["word"])
             word = word_dic["word"]
 
-            for left in range(WORD_LIST_LENGTH - word_len + 1):
+            for left in range(WORD_LIST_LENGTH - word_len + 2):
                 flag = True
                 for j in range(word_len):
                     index = left + j
@@ -80,7 +79,6 @@ def candidator(target=None, candidate_char=None, candidate_thema=None,mode='Norm
                         "theme": word_dic["theme"],
                         "fill_char": fill_char
                         })
-                    break
 
     # 条件にそう単語を抽出するフロー群
     for word in candidate_words:
@@ -88,10 +86,9 @@ def candidator(target=None, candidate_char=None, candidate_thema=None,mode='Norm
         if check_char(word,candidate_char): satisfied_char_word.append(word)
         #if check_thema(word,chandidate_thema): satisfied_thema_word.append(word)
 
-    ##    return satisfied_char_word
+    return satisfied_char_word
 
-
-    
+    """    
     for word in satisfied_char_word:
         print("word : ",word["word"])
         print("theme : ",word["theme"])
@@ -99,3 +96,4 @@ def candidator(target=None, candidate_char=None, candidate_thema=None,mode='Norm
 
 
 candidator(target='..かいし..')
+"""
