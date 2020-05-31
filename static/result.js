@@ -13,23 +13,47 @@ document.getElementById("searchbutton").onclick = function(){
     }
     let result = result_words.join("");
     console.log(result);
-    var fData = new FormData();
-    fData.append('banmen',result);
-    $.ajax({
-        url: '/register',
-        type: 'POST',
-        data: fData,
-        contentType: false,
-        processData: false,
-        success: function(data, dataType){
-            console.log('Success',data)
-            $('#result').html(data);
-            resultShow();
-        },
-        error: function(XMLHttpRequest, textStatus, errorThrown){
-            console.log('Error : '+errorThrown)
+
+    for(q = 0, dotcounter = 0; q < result_words.length; q++){
+        if(result_words[q] === "."){
+            dotcounter++;
+            console.log
+        } 
+    }
+    console.log(dotcounter);
+
+    if(dotcounter != 4){
+        alert("当てはめる文字数は3つのみにしてください");
+    }
+
+    else{
+        try{
+            var fData = new FormData();
+            fData.append('banmen',result);
+            $.ajax({
+                url: '/register',
+                type: 'POST',
+                data: fData,
+                contentType: false,
+                processData: false,
+                success: function(data, dataType){
+                    console.log('Success',data)
+                    $('#result').html(data);
+                    resultShow();
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown){
+                    console.log('Error : '+errorThrown)
+                }
+            });
         }
-    });
+        catch(e){
+            console.error(e)
+        }
+
+        finally{
+            console.log("Server connection end");
+        }
+    }
 
     
 
