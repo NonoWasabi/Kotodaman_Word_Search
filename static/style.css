@@ -71,11 +71,11 @@ input:focus{
     width:30%;
 }
 
-.mainsys{
+#mainsys{
     margin: 30px 30px 30px 30px;
 }
 
-.mainsys .search{
+#mainsys #search{
     height: 100%;
 }
 
@@ -93,7 +93,7 @@ input:focus{
 .frame.scalereverse{
     transform:scale(-1, 1);
 }
-.mainsys .search .sevenwords{
+#mainsys #search #sevenwords{
     background-color: rgba(219, 195, 171, 0.7);
     border-radius: 30px;
     height: 100px;
@@ -105,7 +105,7 @@ input:focus{
     justify-content: space-around;
     align-items: center;
 }
-.mainsys .search .sevenwords .banmen{
+#mainsys #search #sevenwords .banmen{
     background-color: rgba(0,0,0,0.5);
     width: 60px;
     height: 60px;
@@ -124,7 +124,7 @@ input:focus{
     justify-content: space-around;
     text-align: center;
 }
-.mainsys .nihongolist{
+#mainsys #nihongolist{
     background-color:rgb(92, 46, 12);
     width: 100%;
     max-width:var(--var_max_width);
@@ -144,7 +144,7 @@ input:focus{
 }
 
 
-.mainsys .nihongolist .dan{
+#mainsys #nihongolist .dan{
     width: 60px;
     height: 360px;
     display: flex;
@@ -170,12 +170,6 @@ input:focus{
     cursor: pointer;
 }
 /* wordは全てに適用 */
-
-.mainsys .result{
-    background-color: darkgoldenrod;
-    height: 100%;
-    width: 100%;
-}
 
 .color{
     font-weight: bold;
@@ -216,17 +210,17 @@ input:focus{
         color: rgb(113, 143, 95);
     }
 
-    .mainsys{
+    #mainsys{
         margin: 5px;
     }
 
 
-    .mainsys .search .sevenwords .banmen{
+    #mainsys #search #sevenwords .banmen{
         width: 40px;
         height: 40px;
     }
 
-    .mainsys .nihongolist{
+    #mainsys #nihongolist{
         width: 100%;
         height: 100%;
         background-image: unset;
@@ -235,21 +229,21 @@ input:focus{
         -webkit-overflow-scrolling: touch;
         
     }
-    /*.mainsys .nihongolist .dan{
+    /*#mainsys #nihongolist .dan{
         width:100%;
         display: flex;
         flex-direction: row;
     }*/
 
-    .mainsys .nihongolist::-webkit-scrollbar{
+    #mainsys #nihongolist::-webkit-scrollbar{
         width:20px;
         height:10px;
     }
-    .mainsys .nihongolist::-webkit-scrollbar-track-piece:horizontal{
+    #mainsys #nihongolist::-webkit-scrollbar-track-piece:horizontal{
         background: rgba(60,60,60,0.7);
         border-radius: 10px;
     }
-    .mainsys .nihongolist::-webkit-scrollbar-thumb:horizontal{
+    #mainsys #nihongolist::-webkit-scrollbar-thumb:horizontal{
         background: url('img/scroll_Thumb.svg') no-repeat;
         background-size: 100%;
         background-position:center;
