@@ -37,7 +37,8 @@ header{
 }
 
 .headB a:hover{
-    background-color: rgb(113, 143, 95);
+    color:rgb(234, 175, 0);
+    background-color: rgb(79, 128, 50);
 }
 
 .headA .headC{
@@ -195,7 +196,9 @@ input:focus{
     .headB{
         display: none;
     }
-
+    .headB ul li{
+        width: 100%;
+    }
     .headC{
         margin-right: 10px;
         padding: 0;

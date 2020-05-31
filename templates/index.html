@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.ico')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>爆絶強力ワードサーチャー</title>
+    <title>爆絶強力コトダマン辞書データベース</title>
     <link rel = "stylesheet" href = "https://unpkg.com/ress/dist/ress.min.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/89e57c9a66.js" crossorigin="anonymous"></script>
     <script src="{{url_for('static', filename='loading.js')}}"></script>
+    <script src="{{url_for('static', filename='showpage.js')}}"></script>
     <link rel = "stylesheet" href = "{{url_for('static', filename='style.css')}}">
     <link rel = "stylesheet" href = "{{url_for('static', filename='loading.css')}}">
+    <link rel = "stylesheet" href = "{{url_for('static', filename='showpage.css')}}">
     <link rel = "stylesheet" href = "{{url_for('static', filename='result_popup.css')}}">
     <mata name = "viewport" content = "width = device-width, initial-scale = 1"></mata>
 </head>
@@ -28,7 +30,7 @@
     <header>
         <div class = "con">
             <div class = "headA">
-                <p>爆絶強力ワードサーチャー</p>
+                <p>爆絶強力コトダマン辞書データベース</p>
                 <button type = "button" class = "headC">
                     <span class = "fa fa-bars" title = "MENU"></span>
                 </button>
@@ -36,11 +38,18 @@
         </div>
         <nav class = "headB">
             <ul>
-                <li><a href = "How_To_Use.html">How to Use</a></li>
-                <li><a href = "https://kotodaman.jp/">Official Home Page</a></li>
+                <li><a onclick='HowToUseShow()'>使いかた</a></li>
+                <li><a onclick='FundingPageShow()'>募金して！</a></li>
+                <li><a href = "https://kotodaman.jp/">公式サイト</a></li>
             </ul>
         </nav>
     </header>
+    <div id = 'howtouse'>
+        <p>HowtoUse</p>
+    </div>
+    <div id = 'funding'>
+        <p>funding</p>
+    </div>
 
     <div id = "mainsys">
         <div id = "search">

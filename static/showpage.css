@@ -1,0 +1,13 @@
+#howtouse{
+    color: black;
+    background: red;
+    display:none;
+    transition: 0.5s;
+}
+
+#funding{
+    color: black;
+    background: blue;
+    display:none;
+    transition: 0.5s;
+}
