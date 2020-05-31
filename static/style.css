@@ -4,7 +4,8 @@ html{
 }
 
 header{
-    background-color: rgba(149, 189, 126);
+    background-color: rgb(24, 13, 0);
+    color:white;
     top: 0;
     left: 0;
     width: 100%;
@@ -197,7 +198,8 @@ input:focus{
         display: none;
     }
     .headB ul li{
-        width: 100%;
+        width: 80%;
+        margin: 0 10% 0 10%;
     }
     .headC{
         margin-right: 10px;

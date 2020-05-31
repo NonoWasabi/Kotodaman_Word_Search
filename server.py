@@ -2,16 +2,16 @@ from flask import Flask,render_template,request
 import WordCandidate
 import payjp
 import os
-"""
-SECRET_KEY = os.environ['SECRET_KEY']
-PUBLIC_KEY = os.environ['PUBLIC_KEY']
+
+SECRET_KEY = 'sk_test_e26c021be10c38d4ab9dbb99'
+PUBLIC_KEY = 'pk_test_f53a384e76604c19b1d6b3c1'
 payjp.api_key = SECRET_KEY
-"""
+
 app = Flask(__name__,static_folder='static')
 
 @app.route('/')
 def hello():
-    return render_template('index.html')
+    return render_template('index.html',public_key=PUBLIC_KEY)
 
 @app.route('/register', methods=['POST'])
 def post():
@@ -19,8 +19,8 @@ def post():
     return_word = WordCandidate.candidator(target=banmen_string)
 
     return render_template('result.html',posts = return_word)
-"""
-@app.route('/funding',method=['POST'])
+
+@app.route('/pay',methods=['POST'])
 def pay():
     #カード情報を入力し，決済確定ボタンを押してから行われるフェーズ
     amount = request.form['amount']
@@ -34,7 +34,7 @@ def pay():
         description='Funding from Bakuzetsu site user'
     )
     return render_template('pay.html', amount=amount)
-"""
+
 
 if __name__ == "__main__":
    
