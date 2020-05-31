@@ -88,14 +88,11 @@ def candidator(target=None, candidate_char=None, candidate_thema=None,mode='Norm
         if check_char(word,candidate_char): satisfied_char_word.append(word)
         #if check_thema(word,chandidate_thema): satisfied_thema_word.append(word)
 
-    ##    return satisfied_char_word
+    return satisfied_char_word
 
 
     
-    for word in satisfied_char_word:
-        print("word : ",word["word"])
-        print("theme : ",word["theme"])
-        print(word)
-
-
-candidator(target='..かいし..')
+    # for word in satisfied_char_word:
+    #     print("word : ",word["word"])
+    #     print("theme : ",word["theme"])
+    #     print(word)

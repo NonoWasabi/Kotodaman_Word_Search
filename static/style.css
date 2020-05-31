@@ -161,6 +161,7 @@ input:focus{
     height: 60px;
     border-radius: 50%;
     margin: 4px 4px 4px 4px; /* 5px > 4px 左右追加*/
+    cursor: pointer;
 }
 /* wordは全てに適用 */
 
@@ -170,8 +171,12 @@ input:focus{
     width: 100%;
 }
 
+.leaf{
+    padding-top: 10px;
+}
+
 /* 横幅が700px未満の時に発動するCSS*/
-@media screen and (max-width:700px){
+@media screen and (max-width:730px){
     .headA{
         display: flex;
         align-items: center;
@@ -248,7 +253,7 @@ input:focus{
     }
 }
 
-@media(min-width: 701px){
+@media(min-width: 731px){
     header{
         display: flex;
         justify-content: space-between;
