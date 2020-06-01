@@ -1,5 +1,6 @@
 import csv
 from collections import Counter
+import re
 
 WORD_LIST_LENGTH = 6
 l = []
@@ -34,7 +35,11 @@ def candidator(target=None, candidate_char=None, candidate_thema=None,mode='Norm
     satisfied_both_word = []
     # 入ってて欲しいひらがなとテーマを指定
     if target == None:  target = "ぽぷてぴぴっ."
-    if candidate_char == None:  candidate_char = ['い','う','ん','く','ょ','ゅ']
+    if candidate_char == None:
+        print('Default candidate using')
+        candidate_char = ['い','う','ん','く','ょ','ゅ']
+    else:
+        candidate_char = re.sub('(\[|\'|\]|\s)', '', candidate_char).split(',')
     if candidate_thema == None: candidate_thema = [1,2,3,4,5]
 
     # 言葉dbをCSVからファイルの読み込み

@@ -19,7 +19,7 @@ document.getElementById("searchbutton").onclick = function(){
     //　(1) end
 
     // (2) priorityから，優先操作単語を2つまで採取する．
-    var priority_word_array = []
+    var priority_word_array = new Array()
     for(let p = 0; p < priority_word_lists.length; p++){
         pri = priority_word_lists[p]
         if(pri.firstElementChild != null){

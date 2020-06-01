@@ -18,7 +18,8 @@ def post():
     banmen_string = request.form['banmen']
     candidate = request.form['priority']
     if len(candidate) == 0:
-        candidate == None    
+        print('candidate_word is not specify')
+        candidate = None
     return_word = WordCandidate.candidator(target=banmen_string,candidate_char=candidate)
     
 
