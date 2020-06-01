@@ -1,4 +1,5 @@
 const result_lists = document.getElementsByClassName("banmen");
+const priority_word_lists = document.getElementsByClassName("priority_word");
 let result_words = ["", "", "", "", "", "", ""];
 document.getElementById("searchbutton").onclick = function(){
     for(let p = 0; p < result_lists.length; p++){

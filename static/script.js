@@ -63,7 +63,7 @@ for (let i = 0; i < list_items.length; i++){
                     var touch = event.changedTouches[0];
                     var newParentElem = document.elementFromPoint(touch.pageX - window.pageXOffset, touch.pageY - window.pageYOffset);
                     // banmenクラスを持つ7つの穴を感知した場合，appendChildによりドロップする．
-                    if (newParentElem.classList.contains("banmen" && "priority_word")) {
+                    if (newParentElem.classList.contains("empty")) {
                         draggedItem.classList.add('input');
                         newParentElem.appendChild(draggedItem);
                     }
@@ -126,7 +126,7 @@ for (let i = 0; i < list_items.length; i++){
             var touch = event.changedTouches[0];
             var newParentElem = document.elementFromPoint(touch.pageX - window.pageXOffset, touch.pageY - window.pageYOffset);
             // banmenクラスを持つ7つの穴を感知した場合，appendChildによりドロップする．
-            if (newParentElem.classList.contains("banmen" && "priority_word")) {
+            if (newParentElem.classList.contains("empty")) {
                 draggedItem.classList.add('input');
                 newParentElem.appendChild(draggedItem);
             }
