@@ -1,5 +1,5 @@
 const list_items = document.getElementsByClassName("word");
-const lists = document.getElementsByClassName("empty");
+const empty_lists = document.getElementsByClassName("empty");
 const banmen_lists = document.getElementsByClassName("banmen");
 const fifty_lists = document.getElementsByClassName("fifty");
 const changable_lists = document.getElementsByClassName("changable");
@@ -63,7 +63,7 @@ for (let i = 0; i < list_items.length; i++){
                     var touch = event.changedTouches[0];
                     var newParentElem = document.elementFromPoint(touch.pageX - window.pageXOffset, touch.pageY - window.pageYOffset);
                     // banmenクラスを持つ7つの穴を感知した場合，appendChildによりドロップする．
-                    if (newParentElem.classList.contains("banmen")) {
+                    if (newParentElem.classList.contains("banmen" && "priority_word")) {
                         draggedItem.classList.add('input');
                         newParentElem.appendChild(draggedItem);
                     }
@@ -126,7 +126,7 @@ for (let i = 0; i < list_items.length; i++){
             var touch = event.changedTouches[0];
             var newParentElem = document.elementFromPoint(touch.pageX - window.pageXOffset, touch.pageY - window.pageYOffset);
             // banmenクラスを持つ7つの穴を感知した場合，appendChildによりドロップする．
-            if (newParentElem.classList.contains("banmen")) {
+            if (newParentElem.classList.contains("banmen" && "priority_word")) {
                 draggedItem.classList.add('input');
                 newParentElem.appendChild(draggedItem);
             }
@@ -138,24 +138,24 @@ for (let i = 0; i < list_items.length; i++){
     }
 }
 
-for(let j = 0; j < banmen_lists.length; j++){
-    const banmen_list = banmen_lists[j];
+for(let j = 0; j < empty_lists.length; j++){
+    const empty_list = empty_lists[j];
 
-    banmen_list.addEventListener("dragover", function(e){
+    empty_list.addEventListener("dragover", function(e){
         e.preventDefault();
 
     });
-    banmen_list.addEventListener("dragenter", function(e){
+    empty_list.addEventListener("dragenter", function(e){
         e.preventDefault();
         this.style.backgroundColor = "rgba(0, 0, 0, 0.7)";
     });
 
-    banmen_list.addEventListener("dragleave", function(e){
+    empty_list.addEventListener("dragleave", function(e){
         e.preventDefault();
         this.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
     });
 
-    banmen_list.addEventListener("drop", function(e){
+    empty_list.addEventListener("drop", function(e){
         e.preventDefault();
         this.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
         copy = draggedItem.cloneNode(true);
@@ -268,7 +268,7 @@ for(let m = 0; m < changable_lists.length; m++){
 //-----------------------------------------------------------------------------------------------------------------
 document.getElementById("resetbutton").onclick = function(){
     
-    const reseted_Elements = document.getElementsByClassName("banmen");
+    const reseted_Elements = document.getElementsByClassName("empty");
     for(let n = 0; n < reseted_Elements.length; n++){
         reseted_Elements[n].textContent = null;
     }

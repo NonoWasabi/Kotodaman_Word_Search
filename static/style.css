@@ -66,13 +66,6 @@ input:focus{
     outline: 0;
 }
 
-#resetbutton{
-    width:30%;
-}
-
-#searchbutton{
-    width:30%;
-}
 
 #mainsys{
     margin: 30px 30px 30px 30px;
@@ -117,6 +110,14 @@ input:focus{
     justify-content: center;
     align-content: center;
 }
+#subsys{
+    width: 100%;
+    height: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--var_max_width);
+    display: flex;
+}
 #UI_buttons{
     width: 100%;
     max-width: var(--var_max_width);
@@ -126,6 +127,28 @@ input:focus{
     display: flex;
     justify-content: space-around;
     text-align: center;
+}
+#resetbutton, #searchbutton{
+    width: 200px;
+}
+#priority_words_wrap{
+    width: 180px;
+    margin: 10px 10px 10px 0;
+    background-color: rgba(219, 195, 171, 0.7);
+    border-radius: 20px;  
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+#subsys #priority_words_wrap .empty{
+    background-color: rgba(0,0,0,0.5);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
 }
 #mainsys #nihongolist{
     background-color:rgb(92, 46, 12);
@@ -223,6 +246,28 @@ input:focus{
 
     #mainsys #search #sevenwords .banmen{
         width: 40px;
+        height: 40px;
+    }
+
+    #subsys{
+        height: 60px;
+    }
+
+    #UI_buttons{
+        padding: 5px 0 5px 0;
+    }
+
+    #resetbutton, #searchbutton{
+        width: 120px;
+    }
+
+    #priority_words_wrap{
+        margin: 5px 5px 5px 0;
+        width: 140px;
+    }
+
+    #subsys #priority_words_wrap .empty{
+        width:40px;
         height: 40px;
     }
 
