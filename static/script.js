@@ -4,14 +4,100 @@ const banmen_lists = document.getElementsByClassName("banmen");
 const fifty_lists = document.getElementsByClassName("fifty");
 const changable_lists = document.getElementsByClassName("changable");
 
+function changable_word_change(cw){
+    let dakuten_bool = cw.classList.contains("dakuten");
+    let handakuten_bool = cw.classList.contains("handakuten");
+    let small_bool = cw.classList.contains("small");
+
+    let img_src = cw.getAttribute("src");
+    //img_src = img_src.substr(12);
+    img_src = img_src.substr(11);
+    console.log(img_src);
+    img_src = img_src.slice(0, -4);
+    console.log(img_src);
+
+    if(dakuten_bool){
+        img_src = "static/img/"+ String((Number(img_src)+50)%100) +".svg";
+        cw.setAttribute("src", img_src);
+
+        if(cw.getAttribute("alt").normalize('NFD').length == 1){ //濁点でないとき，濁点を付けてaltを書き換える
+            let after_word = unescape(escape(cw.getAttribute("alt").normalize("NFD")[0]) + "%u3099");
+            cw.removeAttribute("alt");
+            cw.setAttribute("alt", after_word);
+        }
+        else{ //濁点の時，濁点を外してaltを書き換える．
+            let after_word = cw.getAttribute("alt").normalize("NFD")[0];
+            cw.removeAttribute("alt");
+            cw.setAttribute("alt", after_word);
+        }
+    }
+
+    else if(handakuten_bool){
+        let img_src_num = img_src;
+        img_src = "static/img/"+ String((Number(img_src)+50)%150) +".svg";
+        cw.setAttribute("src", img_src);
+
+        if(img_src_num == 17){
+            cw.removeAttribute("alt");
+            cw.setAttribute("alt", "づ");
+        }
+
+        else if(img_src_num == 67){
+            cw.removeAttribute("alt");
+            cw.setAttribute("alt", "っ");
+        }
+
+        else if(img_src_num == 117) {
+            cw.removeAttribute("alt");
+            cw.setAttribute("alt", "つ");
+        }
+
+        else{
+            let uni_num_x16 = escape(cw.getAttribute("alt").normalize("NFC")[0]).substr(2, 4);
+            let uni_num = Number(parseInt(uni_num_x16, 16));
+
+            if((uni_num % 3 == 0)||( uni_num % 3 == 1)){
+                uni_num++;
+                after_word = unescape("%u" + uni_num.toString(16));
+                cw.removeAttribute("alt");
+                cw.setAttribute("alt", after_word);
+            }
+
+            else{
+                uni_num = uni_num - 2;
+                after_word = unescape("%u" + uni_num.toString(16));
+                cw.removeAttribute("alt");
+                cw.setAttribute("alt", after_word);
+            }
+        }
+    }
+
+    else if(small_bool){
+        img_src = "static/img/"+ String((Number(img_src)+150)%300) +".svg";
+        cw.setAttribute("src", img_src);
+
+        let uni_num = escape(cw.getAttribute("alt").normalize("NFD")[0]).substr(2, 4);
+        if(Number(uni_num) % 2 == 0){
+            let after_word = unescape("%u" + String(Number(uni_num) - 1));
+            cw.removeAttribute("alt");
+            cw.setAttribute("alt", after_word);
+        }
+
+        else{
+            let after_word = unescape("%u" + String(Number(uni_num) + 1));
+            cw.removeAttribute("alt");
+            cw.setAttribute("alt", after_word);
+        }
+    }
+}
 
 
 let draggedItem = null;
 let predrag = null;
-
+//touch device functions
 for (let i = 0; i < list_items.length; i++){
     const item = list_items[i];
-
+    //*common function for mouse device and touch device
     item.addEventListener("dragstart", function(){
         draggedItem = item
         predrag = item.parentElement
@@ -71,25 +157,7 @@ for (let i = 0; i < list_items.length; i++){
                 }
                 else{
                     window.setTimeout(function(){
-                        let img_src = item.getAttribute("src");
-                        img_src = img_src.substr(11);
-                        img_src = img_src.slice(0, -4);
-                        let dakuten_bool = item.classList.contains("dakuten");
-                        let handakuten_bool = item.classList.contains("handakuten");
-                        let small_bool = item.classList.contains("small");
-                        if(dakuten_bool){
-                            img_src = "static/img/"+ String((Number(img_src)+50)%100) +".svg"
-                            item.setAttribute('alt','')
-                            item.setAttribute("src", img_src);
-                        }
-                        else if(handakuten_bool){
-                            img_src = "static/img/"+ String((Number(img_src)+50)%150) +".svg"
-                            item.setAttribute("src", img_src);
-                        }
-                        else if(small_bool){
-                            img_src = "static/img/"+ String((Number(img_src)+150)%300) +".svg"
-                            item.setAttribute("src", img_src);
-                        }
+                        changable_word_change(item);
                     },100)
                 }
                 item.removeEventListener('touchend',changable_touchend)
@@ -138,6 +206,7 @@ for (let i = 0; i < list_items.length; i++){
     }
 }
 
+//mouse device functions
 for(let j = 0; j < empty_lists.length; j++){
     const empty_list = empty_lists[j];
 
@@ -167,107 +236,19 @@ for(let j = 0; j < empty_lists.length; j++){
         predrag.append(draggedItem);
     });
 }
-
-
-
 for(let m = 0; m < changable_lists.length; m++){
     const changable_list = changable_lists[m];
 
 
     changable_list.addEventListener("click", function(e){
         e.preventDefault();
-        let img_src = changable_list.getAttribute("src");
-        //img_src = img_src.substr(12);
-        img_src = img_src.substr(11);
-        console.log(img_src);
-        img_src = img_src.slice(0, -4);
-        console.log(img_src);
-
-        let dakuten_bool = changable_list.classList.contains("dakuten");
-        let handakuten_bool = changable_list.classList.contains("handakuten");
-        let small_bool = changable_list.classList.contains("small");
-
-        if(dakuten_bool){
-            img_src = "static/img/"+ String((Number(img_src)+50)%100) +".svg";
-            changable_list.setAttribute("src", img_src);
-
-            if(changable_list.getAttribute("alt").normalize('NFD').length == 1){ //濁点でないとき，濁点を付けてaltを書き換える
-                let after_word = unescape(escape(changable_list.getAttribute("alt").normalize("NFD")[0]) + "%u3099");
-                changable_list.removeAttribute("alt");
-                changable_list.setAttribute("alt", after_word);
-            }
-            else{ //濁点の時，濁点を外してaltを書き換える．
-                let after_word = changable_list.getAttribute("alt").normalize("NFD")[0];
-                changable_list.removeAttribute("alt");
-                changable_list.setAttribute("alt", after_word);
-            }
-        }
-
-        else if(handakuten_bool){
-            let img_src_num = img_src;
-            img_src = "static/img/"+ String((Number(img_src)+50)%150) +".svg";
-            changable_list.setAttribute("src", img_src);
-
-            if(img_src_num == 17){
-                changable_list.removeAttribute("alt");
-                changable_list.setAttribute("alt", "づ");
-            }
-
-            else if(img_src_num == 67){
-                changable_list.removeAttribute("alt");
-                changable_list.setAttribute("alt", "っ");
-            }
-
-            else if(img_src_num == 117) {
-                changable_list.removeAttribute("alt");
-                changable_list.setAttribute("alt", "つ");
-            }
-
-            else{
-                let uni_num_x16 = escape(changable_list.getAttribute("alt").normalize("NFC")[0]).substr(2, 4);
-                let uni_num = Number(parseInt(uni_num_x16, 16));
-
-                if((uni_num % 3 == 0)||( uni_num % 3 == 1)){ 
-                    uni_num++;
-                    after_word = unescape("%u" + uni_num.toString(16));
-                    changable_list.removeAttribute("alt");
-                    changable_list.setAttribute("alt", after_word);
-                }
-
-                else{
-                    uni_num = uni_num - 2;
-                    after_word = unescape("%u" + uni_num.toString(16));
-                    changable_list.removeAttribute("alt");
-                    changable_list.setAttribute("alt", after_word);
-                }
-            }
-        }
-
-        else if(small_bool){
-            img_src = "static/img/"+ String((Number(img_src)+150)%300) +".svg";
-            changable_list.setAttribute("src", img_src);
-            
-            let uni_num = escape(changable_list.getAttribute("alt").normalize("NFD")[0]).substr(2, 4);
-            if(Number(uni_num) % 2 == 0){
-                let after_word = unescape("%u" + String(Number(uni_num) - 1));
-                changable_list.removeAttribute("alt");
-                changable_list.setAttribute("alt", after_word);
-            }
-
-            else{
-                let after_word = unescape("%u" + String(Number(uni_num) + 1));
-                changable_list.removeAttribute("alt");
-                changable_list.setAttribute("alt", after_word);
-            }
-
-
-        }
+        changable_word_change(changable_list);
     });
 }
 
 //-----------------------------------------------------------------------------------------------------------------
 document.getElementById("resetbutton").onclick = function(){
-    
+
     const reseted_Elements = document.getElementsByClassName("empty");
     for(let n = 0; n < reseted_Elements.length; n++){
         reseted_Elements[n].textContent = null;
