@@ -39,8 +39,10 @@ def candidator(target=None, candidate_char=None, candidate_thema=None,mode='Norm
         print('Default candidate using')
         candidate_char = ['い','う','ん','く','ょ','ゅ']
     else:
-        candidate_char = re.sub('(\[|\'|\]|\s)', '', candidate_char).split(',')
+        candidate_char = re.sub('(\[|\'|\]|\s)','',candidate_char).split(',')
     if candidate_thema == None: candidate_thema = [1,2,3,4,5]
+    print(target)
+    print(candidate_char)
 
     # 言葉dbをCSVからファイルの読み込み
     if len(word_list[0]) == 0:
