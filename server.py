@@ -1,3 +1,4 @@
+#!/usr/bin/python3.7
 from flask import Flask,render_template,request
 import WordCandidate
 import payjp
@@ -44,4 +45,4 @@ def pay():
 
 if __name__ == "__main__":
    
-    app.run(debug=True,port=5555)
+    app.run(debug=True,port=5555,server='cgi')
