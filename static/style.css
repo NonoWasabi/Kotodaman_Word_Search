@@ -134,8 +134,9 @@ input:focus{
 #priority_words_wrap{
     width: 180px;
     margin: 10px 10px 10px 0;
-    background-color: rgba(219, 195, 171, 0.7);
-    border-radius: 20px;  
+    background-color: rgba(255, 186, 67, 0.633);
+    border: solid 3px rgba(86, 181, 30, 0.5);
+    border-radius: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
