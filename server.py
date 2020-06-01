@@ -16,7 +16,11 @@ def hello():
 @app.route('/register', methods=['POST'])
 def post():
     banmen_string = request.form['banmen']
-    return_word = WordCandidate.candidator(target=banmen_string)
+    candidate = request.form['priority']
+    if len(candidate) == 0:
+        candidate == None    
+    return_word = WordCandidate.candidator(target=banmen_string,candidate_char=candidate)
+    
 
     return render_template('result.html',posts = return_word)
 
