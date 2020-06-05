@@ -235,6 +235,16 @@ for(let j = 0; j < empty_lists.length; j++){
         this.append(copy);
         predrag.append(draggedItem);
     });
+
+    empty_list.addEventListener("click", function(e){
+        e.preventDefault();
+        this.textContent = null;
+    });
+
+    empty_list.addEventListener("touchstart", function(e){
+        e.preventDefault();
+        this.textContent = null;
+    })
 }
 for(let m = 0; m < changable_lists.length; m++){
     const changable_list = changable_lists[m];
@@ -245,6 +255,7 @@ for(let m = 0; m < changable_lists.length; m++){
         changable_word_change(changable_list);
     });
 }
+
 
 //-----------------------------------------------------------------------------------------------------------------
 document.getElementById("resetbutton").onclick = function(){

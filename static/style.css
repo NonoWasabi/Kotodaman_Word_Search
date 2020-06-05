@@ -110,9 +110,11 @@ input:focus{
     justify-content: center;
     align-content: center;
 }
+
+
 #subsys{
     width: 100%;
-    height: 90px;
+    height: 120px;
     margin-left: auto;
     margin-right: auto;
     max-width: var(--var_max_width);
@@ -122,8 +124,7 @@ input:focus{
     width: 100%;
     max-width: var(--var_max_width);
     margin-left: auto;
-    margin-right: auto;
-    padding:10px 0 10px 0;
+    margin-right: auto;;
     display: flex;
     justify-content: space-around;
     text-align: center;
@@ -131,16 +132,27 @@ input:focus{
 #resetbutton, #searchbutton{
     width: 200px;
 }
+#word_num_wrap{
+    height: 28px;
+    padding: 0 auto;
+    margin-top: 10px;
+
+}
+#word_num_wrap select{
+    background: white;
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+}
 #priority_words_wrap{
     width: 180px;
-    margin: 10px 10px 10px 0;
     background-color: rgba(255, 186, 67, 0.633);
     border: solid 3px rgba(86, 181, 30, 0.5);
     border-radius: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-
+    
 }
 #subsys #priority_words_wrap .empty{
     background-color: rgba(0,0,0,0.5);
@@ -251,7 +263,7 @@ input:focus{
     }
 
     #subsys{
-        height: 60px;
+        height: 100px;
     }
 
     #UI_buttons{
@@ -262,9 +274,12 @@ input:focus{
         width: 120px;
     }
 
+    #word_num_wrap{
+        margin-top: 10px;
+    }
+
     #priority_words_wrap{
-        margin: 5px 5px 5px 0;
-        width: 140px;
+        width: 120px;
     }
 
     #subsys #priority_words_wrap .empty{
