@@ -1,4 +1,4 @@
-#!/usr/bin/python3.7
+#!/usr/bin/python3.4
 # -*- coding: utf-8 -*-
 from flask import Flask,render_template,request
 import WordCandidate
