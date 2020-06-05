@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import csv
 from collections import Counter
 import re

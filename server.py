@@ -1,4 +1,5 @@
 #!/usr/bin/python3.7
+# -*- coding: utf-8 -*-
 from flask import Flask,render_template,request
 import WordCandidate
 import payjp
@@ -28,7 +29,7 @@ def post():
 
 @app.route('/pay',methods=['POST'])
 def pay():
-    #カード情報を入力し，決済確定ボタンを押してから行われるフェーズ
+
     print('payment phase')
     amount = 1000
     customer = payjp.Customer.create(
