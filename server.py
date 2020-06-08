@@ -20,7 +20,6 @@ def post():
     banmen_string = request.form['banmen']
     candidate = request.form['priority']
     if len(candidate) == 0:
-        print('candidate_word is not specify')
         candidate = None
     return_word = WordCandidate.candidator(target=banmen_string,candidate_char=candidate)
     
@@ -30,7 +29,6 @@ def post():
 @app.route('/pay',methods=['POST'])
 def pay():
 
-    print('payment phase')
     amount = 1000
     customer = payjp.Customer.create(
        card=request.form['payjp-token']
@@ -45,5 +43,4 @@ def pay():
 
 
 if __name__ == "__main__":
-   
-    app.run(debug=True,port=5555)
+    app.run()
