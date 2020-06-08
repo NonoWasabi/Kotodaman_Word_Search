@@ -274,6 +274,13 @@ input:focus{
         width:40px;
         height: 40px;
     }
+    #mainsys #search #sevenwords{
+        height: 80px;
+    }
+    .frame, .frame img{
+        height: 100px;
+    }
+
 
     #mainsys #nihongolist{
         width: 100%;
@@ -304,6 +311,9 @@ input:focus{
         background-position:center;
         width:5px;
         display: block;
+    }
+    #mainsys #nihongolist .dan{
+        height: 290px;
     }
 
     .word{
