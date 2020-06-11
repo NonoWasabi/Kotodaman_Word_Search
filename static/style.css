@@ -153,6 +153,11 @@ input:focus{
     justify-content: center;
     align-content: center;
 }
+#wordcount_radio label{
+    font-weight: bold;
+    color: white;
+    margin: 0 auto;
+}
 #mainsys #nihongolist{
     background-color:rgb(92, 46, 12);
     width: 100%;

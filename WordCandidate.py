@@ -14,8 +14,8 @@ thema = {}
 
 #抽出ターゲットである文字数を指定する変数
 # 2文字なら[0]
-start = 3 #以上
-end = 7  #未満
+start = 2 #以上
+end = 6  #未満
 
 
 def check_thema(word,candidate_thema):

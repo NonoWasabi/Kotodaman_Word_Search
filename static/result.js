@@ -50,8 +50,9 @@ document.getElementById("searchbutton").onclick = function(){
                 contentType: false,
                 processData: false,
                 success: function(data, dataType){
-                    console.log('Success',data)
+                    //sconsole.log('Success',data)
                     $('#result').html(data);
+                    wordsort();
                     resultShow();
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown){
@@ -68,7 +69,25 @@ document.getElementById("searchbutton").onclick = function(){
         }
     }
 
-    
+function wordsort(){
+    var showedword_lists = document.getElementsByClassName("showed_word");
+    var wcr = document.getElementById("wordcount_radio");
+    for(let s = 0; s < showedword_lists.length; s++){
+        console.log(showedword_lists[s].textContent.length)
+        if(wcr.wordcount.value === "4文字" && showedword_lists[s].textContent.length != 4){
+            showedword_lists[s].closest(".word_wrap").style.display = "none";
+        }
+        else if(wcr.wordcount.value === "5文字" && showedword_lists[s].textContent.length != 5){
+            showedword_lists[s].closest(".word_wrap").style.display = "none";
+        }
+        else if(wcr.wordcount.value === "5文字以上" && showedword_lists[s].textContent.length < 5){
+            showedword_lists[s].closest(".word_wrap").style.display = "none";
+        }
+        else if(wcr.wordcount.value === "6文字以上" && showedword_lists[s].textContent.length < 6){
+            showedword_lists[s].closest(".word_wrap").style.display = "none";
+        }
+    }    
+}
 
 }
 function resultShow(){

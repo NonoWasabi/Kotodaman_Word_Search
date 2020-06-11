@@ -20,9 +20,9 @@
 .popup-inner{
     max-width: 700px;
     position: absolute;
-    top:60%;
+    top:50%;
     left:50%;
-    height: 500px;
+    height: 400px;
     width:90%;
     max-width: 700px;
     padding: 20px;
