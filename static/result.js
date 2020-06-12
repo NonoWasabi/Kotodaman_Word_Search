@@ -1,5 +1,7 @@
 const result_lists = document.getElementsByClassName("banmen");
 const priority_word_lists = document.getElementsByClassName("priority_word");
+const showedword_lists = document.getElementsByClassName("showed_word");
+const wcr = document.getElementById("wordcount_radio");
 let result_words = ["", "", "", "", "", "", ""];
 document.getElementById("searchbutton").onclick = function(){
 
@@ -34,11 +36,18 @@ document.getElementById("searchbutton").onclick = function(){
     for(q = 0, dotcounter = 0; q < result_words.length; q++){
         if(result_words[q] === "."){
             dotcounter++;
-            console.log
         } 
     }
     // (3) end
+    let dotchecker = 0
+    for(let u = 0; u < result_words.length; u++){
+        if(result_words[u] === result_words[u-1] && result_words[u] === "."){
+            dotchecker++;
+        }
+    }
+    
     if(dotcounter != 4){alert("当てはめる文字数は3つのみにしてください");}
+    else if(dotchecker == 3 && wcr.wordcount.value === "4文字"){alert("盤面が4つ連続で空いている状態で4文字検索しないでください")}
     else{
         try{
             var fData = new FormData();
@@ -71,8 +80,6 @@ document.getElementById("searchbutton").onclick = function(){
     }
 
 function wordsort(){
-    var showedword_lists = document.getElementsByClassName("showed_word");
-    var wcr = document.getElementById("wordcount_radio");
     for(let s = 0; s < showedword_lists.length; s++){
         console.log(showedword_lists[s].textContent.length)
         if(wcr.wordcount.value === "4文字" && showedword_lists[s].textContent.length != 4){
