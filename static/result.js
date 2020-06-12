@@ -30,7 +30,8 @@ document.getElementById("searchbutton").onclick = function(){
     // (2) end
 
     // (3) 盤面に空白が4つあるか確認
-    for(let q = 0, dotcounter = 0; q < result_words.length; q++){
+    let q, dotcounter;
+    for(q = 0, dotcounter = 0; q < result_words.length; q++){
         if(result_words[q] === "."){
             dotcounter++;
             console.log
