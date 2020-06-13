@@ -11,13 +11,6 @@ word_list = [[] for _ in range(WORD_LIST_LENGTH)]
 #theme.txtの情報を受け取るリスト
 thema = {}
 
-
-#抽出ターゲットである文字数を指定する変数
-# 2文字なら[0]
-start = 2 #以上
-end = 6  #未満
-
-
 def check_thema(word,candidate_thema):
         for t in candidate_thema:
             if t in word["theme"]: return True
@@ -28,12 +21,27 @@ def check_char(word,candidate_char):
         if c in word["fill_char"]: return True
     return False
 
-def candidator(target=None, candidate_char=None, candidate_thema=None,mode='Normal'):
+def candidator(target=None, candidate_char=None, counter=None, candidate_thema=None,mode='Normal'):
     candidate_words = []
     candidate_fill = []
     satisfied_thema_word = []
     satisfied_char_word = []
     satisfied_both_word = []
+
+    # 文字数指定
+    if counter == '4文字':
+        start = 2 #以上(2文字なら[0])
+        end = 3 #未満
+    elif  counter == '5文字':
+        start = 3
+        end = 3
+    elif counter == '5文字以上':
+        start = 3
+        end = 6
+    else:
+        start = 4
+        end = 6
+
     # 入ってて欲しいひらがなとテーマを指定
     if target == None:  target = "ぽぷてぴぴっ."
     if candidate_char == None:

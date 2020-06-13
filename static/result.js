@@ -1,6 +1,5 @@
 const result_lists = document.getElementsByClassName("banmen");
 const priority_word_lists = document.getElementsByClassName("priority_word");
-const showedword_lists = document.getElementsByClassName("showed_word");
 const wcr = document.getElementById("wordcount_radio");
 let result_words = ["", "", "", "", "", "", ""];
 document.getElementById("searchbutton").onclick = function(){
@@ -39,12 +38,15 @@ document.getElementById("searchbutton").onclick = function(){
         } 
     }
     // (3) end
+
+    // (4)盤面が4つ連続で空いているときに4文字検索させない
     let dotchecker = 0
     for(let u = 0; u < result_words.length; u++){
-        if(result_words[u] === result_words[u-1] && result_words[u] === "."){
+        if(result_words[u] === result_words[u+1] && result_words[u] === "."){
             dotchecker++;
         }
     }
+    // (4) end
     
     if(dotcounter != 4){alert("当てはめる文字数は3つのみにしてください");}
     else if(dotchecker == 3 && wcr.wordcount.value === "4文字"){alert("盤面が4つ連続で空いている状態で4文字検索しないでください")}
@@ -52,7 +54,8 @@ document.getElementById("searchbutton").onclick = function(){
         try{
             var fData = new FormData();
             fData.append('banmen',result);
-            fData.append('priority',priority_word_array)
+            fData.append('priority',priority_word_array);
+            fData.append('wordcounter',wcr.wordcount.value);
             $.ajax({
                 url: '/register',
                 type: 'POST',
@@ -62,7 +65,6 @@ document.getElementById("searchbutton").onclick = function(){
                 success: function(data, dataType){
                     //sconsole.log('Success',data)
                     $('#result').html(data);
-                    wordsort();
                     resultShow();
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown){
@@ -78,24 +80,6 @@ document.getElementById("searchbutton").onclick = function(){
             console.log("Server connection end");
         }
     }
-
-function wordsort(){
-    for(let s = 0; s < showedword_lists.length; s++){
-        console.log(showedword_lists[s].textContent.length)
-        if(wcr.wordcount.value === "4文字" && showedword_lists[s].textContent.length != 4){
-            showedword_lists[s].closest(".word_wrap").style.display = "none";
-        }
-        else if(wcr.wordcount.value === "5文字" && showedword_lists[s].textContent.length != 5){
-            showedword_lists[s].closest(".word_wrap").style.display = "none";
-        }
-        else if(wcr.wordcount.value === "5文字以上" && showedword_lists[s].textContent.length < 5){
-            showedword_lists[s].closest(".word_wrap").style.display = "none";
-        }
-        else if(wcr.wordcount.value === "6文字以上" && showedword_lists[s].textContent.length < 6){
-            showedword_lists[s].closest(".word_wrap").style.display = "none";
-        }
-    }    
-}
 
 }
 function resultShow(){

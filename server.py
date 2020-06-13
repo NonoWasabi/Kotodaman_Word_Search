@@ -19,9 +19,10 @@ def hello():
 def post():
     banmen_string = request.form['banmen']
     candidate = request.form['priority']
+    wordcounter = request.form['wordcounter']
     if len(candidate) == 0:
         candidate = None
-    return_word = WordCandidate.candidator(target=banmen_string,candidate_char=candidate)
+    return_word = WordCandidate.candidator(target=banmen_string,candidate_char=candidate,counter=wordcounter)
     
 
     return render_template('result.html',posts = return_word)
