@@ -34,7 +34,7 @@ def candidator(target=None, candidate_char=None, counter=None, candidate_thema=N
         end = 3 #未満
     elif  counter == '5文字':
         start = 3
-        end = 3
+        end = 4
     elif counter == '5文字以上':
         start = 3
         end = 6
