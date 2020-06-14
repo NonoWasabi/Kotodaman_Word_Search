@@ -45,7 +45,7 @@ def candidator(target=None, candidate_char=None, counter=None, candidate_thema=N
     # 入ってて欲しいひらがなとテーマを指定
     if target == None:  target = "ぽぷてぴぴっ."
     if candidate_char == None:
-        candidate_char = ['い','う','ん','く','ょ','ゅ']
+        candidate_char = ['い','う','ん']
     else:
         candidate_char = re.sub('(\[|\'|\]|\s)','',candidate_char).split(',')
     if candidate_thema == None: candidate_thema = [1,2,3,4,5]
@@ -73,10 +73,11 @@ def candidator(target=None, candidate_char=None, counter=None, candidate_thema=N
                         thema[int(text[i*2])] = text[i*2+1]
 
     #条件にあう単語を抜き出し
-    for xth_words in word_list[start:end]:
-        for word_dic in xth_words:
-            word_len = len(word_dic["word"])
-            word = word_dic["word"]
+    for xth_words in word_list[start:end]: #xth_wordsにcsv1行ごとを代入していく
+        for word_dic in xth_words: #word_dicに代入された文字を代入していく
+            word_len = len(word_dic["word"]) #word_lenは代入された単語のの文字数
+            word = word_dic["word"] #word: リストの中の単語
+            wordandcircle = []
 
             for left in range(WORD_LIST_LENGTH - word_len + 2):
                 flag = True
@@ -86,6 +87,13 @@ def candidator(target=None, candidate_char=None, counter=None, candidate_thema=N
                         flag = False
 
                 if flag:
+                    for leftcircle in range(left):
+                        wordandcircle.append("〇")
+                    for k in range(word_len):
+                            wordandcircle.append(word[k])
+                    for rightcircle in range(index, WORD_LIST_LENGTH):
+                        wordandcircle.append("〇")
+                    STRwordandcircle = "".join(wordandcircle)
                     fill_char = set()
                     word_count = Counter(word)
                     target_count = Counter(target)
@@ -93,7 +101,7 @@ def candidator(target=None, candidate_char=None, counter=None, candidate_thema=N
                         if v > target_count[c]: fill_char.add(c)
 
                     candidate_words.append({
-                        "word": word,
+                        "word": STRwordandcircle,
                         "theme": word_dic["theme"],
                         "fill_char": fill_char
                         })
