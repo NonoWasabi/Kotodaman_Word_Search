@@ -77,7 +77,7 @@ def candidator(target=None, candidate_char=None, counter=None, candidate_thema=N
         for word_dic in xth_words: #word_dicに代入された文字を代入していく
             word_len = len(word_dic["word"]) #word_lenは代入された単語のの文字数
             word = word_dic["word"] #word: リストの中の単語
-            wordandcircle = []
+            wordandcircle = ["","","","","","",""]
 
             for left in range(WORD_LIST_LENGTH - word_len + 2):
                 flag = True
@@ -87,12 +87,13 @@ def candidator(target=None, candidate_char=None, counter=None, candidate_thema=N
                         flag = False
 
                 if flag:
-                    for leftcircle in range(left):
-                        wordandcircle.append("〇")
-                    for k in range(word_len):
-                            wordandcircle.append(word[k])
-                    for rightcircle in range(index, WORD_LIST_LENGTH):
-                        wordandcircle.append("〇")
+                    print(word)
+                    for leftcircle in range(0, left):
+                        wordandcircle[leftcircle]="〇"
+                    for theword in range(left, index+1):
+                        wordandcircle[theword]=word[theword-left]
+                    for rightcircle in range(index+1, WORD_LIST_LENGTH+1):
+                        wordandcircle[rightcircle]="〇"
                     STRwordandcircle = "".join(wordandcircle)
                     fill_char = set()
                     word_count = Counter(word)
