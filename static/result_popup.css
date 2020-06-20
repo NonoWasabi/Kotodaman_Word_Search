@@ -86,6 +86,7 @@
 
 .fill p{
     color: white;
+    letter-spacing: 6px;
 }
 
 @media screen and (max-width:688px){

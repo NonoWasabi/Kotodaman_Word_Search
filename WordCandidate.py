@@ -104,7 +104,7 @@ def candidator(target=None, candidate_char=None, counter=None, candidate_thema=N
                     candidate_words.append({
                         "word": STRwordandcircle,
                         "theme": word_dic["theme"],
-                        "fill_char": fill_char
+                        "fill_char": "".join(fill_char)
                         })
 
     # 条件にそう単語を抽出するフロー群
