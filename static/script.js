@@ -22,6 +22,7 @@ function changable_word_change(cw){
 
         if(cw.getAttribute("alt").normalize('NFD').length == 1){ //濁点でないとき，濁点を付けてaltを書き換える
             let after_word = unescape(escape(cw.getAttribute("alt").normalize("NFD")[0]) + "%u3099");
+            after_word = after_word.normalize("NFC"); //NFDにしたままserver.pyに送信すると文字と濁点が別々で判定されるのでNFCにする
             cw.removeAttribute("alt");
             cw.setAttribute("alt", after_word);
         }

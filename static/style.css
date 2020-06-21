@@ -216,8 +216,36 @@ input:focus{
     font-weight: bold;
     color: black;
 }
-
-
+#credits{
+    width:100%;
+    height:100px;
+    background: black;
+    text-align: center;
+    color:white;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+    padding:25px;
+}
+.flexbox{
+    display: flex;
+    justify-content: space-around;
+}
+.imgbox{
+    width:40px;
+    align-items: center;
+}
+.imgbox img{
+    width:40px;
+}
+.flexbox .textbox{
+    margin-left: 15px;
+}
+.textbox p{
+    line-height: 25px;
+}
 
 /* 横幅が700px未満の時に発動するCSS*/
 @media screen and (max-width:370px){

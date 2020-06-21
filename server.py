@@ -1,5 +1,3 @@
-#!/usr/bin/python3.4
-# -*- coding: utf-8 -*-
 from flask import Flask,render_template,request
 import WordCandidate
 import payjp
@@ -18,7 +16,9 @@ def hello():
 @app.route('/register', methods=['POST'])
 def post():
     banmen_string = request.form['banmen']
+    print(banmen_string)
     candidate = request.form['priority']
+    print(candidate)
     wordcounter = request.form['wordcounter']
     if len(candidate) == 0:
         candidate = None
